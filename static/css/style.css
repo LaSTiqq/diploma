@@ -1,0 +1,156 @@
+body {
+    background-image: url("../images/image.jpg");
+    background-size: auto auto;
+    background-color: #847D89;
+    background-blend-mode: color-dodge;
+}
+
+.nav-link {
+    text-align: center;
+}
+
+.btn {
+  border: none;
+  padding: 10px 16px;
+  background-color: black;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-left: 3px;
+  margin-bottom: 3px;
+  margin-top: 10px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: auto;
+}
+
+.active, .btn:hover, .navbar a:hover {
+  background-color: #4F889A;
+}
+
+.card {
+    background-color: #C0C0C0;
+}
+
+.list-group, .list-group-item {
+    background-color: #30484F;
+    color: white;
+}
+
+.form-group, .form-label, h1, h3, p, ul, li {
+    color: black;
+}
+
+.mask {
+    background: linear-gradient(45deg, rgba(57, 192, 237, 0.2), rgba(57, 192, 237, 0.2) 100%);
+}
+
+span {
+    color:red;
+}
+
+.color-aqua {
+    color:aqua;
+}
+
+.space {
+    padding: 10px;
+    color:white;
+}
+
+.image {
+    width: 325px;
+    height: 250px;
+}
+
+.image-advanced {
+    width: 300px;
+    height: 300px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+.col-md-3 {
+    display: none;
+}
+
+.form-control, .advanced {
+    width: 350px;
+}
+
+.btn {
+    font-size: 15px;
+}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+
+.col-md-3 {
+    display: none;
+}
+
+.form-control, .advanced {
+    width: 555px;
+}
+
+.btn {
+    font-size: 15px;
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+.col-md-3 {
+    display: none;
+}
+
+.form-control, .advanced {
+    width: 675px;
+}
+
+.btn {
+    font-size: 15px;
+}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+.container {
+  max-width: 1920px;
+}
+
+.col-md-3 {
+    display: none;
+}
+
+.form-control, .advanced {
+    width: 950px;
+}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+.container {
+  max-width: 1920px;
+}
+
+.form-control, .advanced {
+    width: 888px;
+}
+
+.image {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.image-advanced {
+    float: none;
+}
+}

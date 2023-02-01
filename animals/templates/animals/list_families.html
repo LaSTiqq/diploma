@@ -1,0 +1,8 @@
+<div class="list-group">
+    <h3 class="space">Dzimtas: </h3>
+    {% for item in families %}
+    <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action">{{ item.name }}
+        <span class="badge bg-dark">{{ item.cnt }}</span>
+    </a>
+    {% endfor %}
+</div>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+{% for item in animals %}
+<div class="card mb-3">
+    <div class="card-header">
+        Dzimta: <a href="{{ item.family_name.get_absolute_url }}" data-mdb-toggle="tooltip"
+                   title="Spied mani, lai atlasīt un parādīt visus šis dzimtas dzīvniekus">{{ item.family_name }}</a>
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <h4 class="card-title">{{ item.animal_name }}</h4>
+                <div class="bg-image hover-overlay">
+                    <img src="{{ item.image.url }}" alt="Attēls" class="image">
+                    <div class="mask image"></div>
+                    <p class="card-text">{{ item.text|linebreaks|truncatewords:122 }}</p>
+                        <a href="{{ item.get_absolute_url }}" class="btn btn-dark">Lasīt vairāk...</a>
+                        {% if request.user.is_staff %}
+                        <a href="{% url 'update_animals' item.id %}" class="btn btn-dark">Rediģēt</a>
+                        <a href="{% url 'delete_animals' item.id %}" class="btn btn-dark">Izdzēst</a>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        {{ item.latin_name }}
+    </div>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}
+

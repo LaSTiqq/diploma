@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dzēšanas apstiprinājums :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <h3>Vai jūs tiešām vēlaties dzēst "{{ object }}"?</h3>
+    <hr class="advanced">
+    <input type="submit" class="btn btn-dark" value="Apstiprināt">
+</form>
+{% endblock %}

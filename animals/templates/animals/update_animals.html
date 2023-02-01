@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dzīvnieka rediģēšana :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<h1 class="color-black">Dzīvnieka rediģēšana</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.animal_name.id_for_label }}" class="form-label">Nosaukums:</label>
+        {{ form.animal_name }}
+    </div>
+
+    <div class="form-group advanced">
+        <label for="{{ form.family_name.id_for_label }}" class="form-label">Dzimta:</label>
+        {{ form.family_name }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.latin_name.id_for_label }}" class="form-label">Latīņu nosaukums:</label>
+        {{ form.latin_name }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.text.id_for_label }}" class="form-label">Teksts:</label>
+        {{ form.text }}
+    </div>
+
+    <div class="form-group">
+        <label for="{{ form.image.id_for_label }}" class="form-label">Bilde:</label>
+        {{ form.image }}
+    </div>
+    <hr class="advanced">
+    <input type="submit" class="btn btn-dark" value="Saglabāt">
+</form>
+{% endblock %}

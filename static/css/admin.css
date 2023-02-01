@@ -1,0 +1,14 @@
+#header,
+.module h2, .module caption, inline-group h2{
+    background: #212121;
+    color: white;
+}
+#branding h1, #branding h1 a:link, #branding h1 a:visited{
+    color: white;
+}
+div.breadcrumbs{
+    background: #212121;
+}
+#nav-sidebar .current-app .section:link{
+    color: white;
+}

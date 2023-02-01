@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ animals_item.animal_name }} :: {{ block.super }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3">
+    <div class="card-header">
+        Dzimta: <a href="{{ animals_item.family_name.get_absolute_url }}" data-mdb-toggle="tooltip"
+                   title="Spied mani, lai atlasīt un parādīt visus šis dzimtas dzīvniekus">{{ animals_item.family_name}}</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ animals_item.animal_name }}</h5>
+        <div class="bg-image hover-overlay">
+            <img src="{{ animals_item.image.url }}" alt="Attēls" class="image">
+            <div class="mask image"></div>
+            <p class="card-text">{{ animals_item.text|linebreaks }}</p>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        {{ animals_item.latin_name }}
+    </div>
+    {% if request.user.is_staff %}
+    <div class="card-footer">
+        QR-kods: <img src="{{ animals_item.qr_code.url }}" alt="QR-kods" class="image-advanced">
+        <a href="{% url 'print_animal' animals_item.id %}" class="btn btn-dark">Izdrukāt</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

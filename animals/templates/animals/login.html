@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ielogošanās :: {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<h1>Ielogoties</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.id_username.id_for_label }}" class="form-label">Lietotājvārds:</label>
+        <br>
+        <input type="text" name="username" class="form-control" maxlength="150" required="" id="id_username">
+    </div>
+    <div class="form-group">
+        <label for="{{ form.id_password.id_for_label }}" class="form-label">Parole:</label>
+        <br>
+        <input type="password" name="password" class="form-control" required="" id="id_password">
+    </div>
+    <hr class="advanced">
+    <p><strong>Lietotājvārdu un paroli piešķir administrātors!</strong></p>
+    <button type="submit" class="btn btn-dark">Ielogoties</button>
+</form>
+{% endblock %}

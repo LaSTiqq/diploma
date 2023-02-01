@@ -1,0 +1,45 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
+        <img src="{% static 'images/favicon.ico' %}" alt="Icon" width="30" height="30" class="d-inline-block align-top">
+        AnimalWiki</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+            <li><a class="nav-link btn-rounded" href="{% url 'home2' %}">Galvenā</a></li>
+            <li><a class="nav-link btn-rounded" href="{% url 'edit_profile' %}">Rediģēt profilu</a></li>
+            {%if not request.user.is_staff%}
+            <li><a class="nav-link btn-rounded" tabindex="0" role="button" data-mdb-toggle="popover"
+                   data-mdb-trigger="focus" title="Ko es varu darīt?" data-mdb-html="true"
+                   data-mdb-content="Jūs esat ielogojies kā parasts <strong>lietotājs</strong>. Tas nozīmē, ka Jūs varat:
+                                         <ul>
+                                         <li>Apskatīt dzīvnieku sarakstu;</li>
+                                         <li>Apskatīt konkrēto dzīvnieku;</li>
+                                         <li>Filtrēt dzīvniekus pēc dzimtām;</li>
+                                         <li>Rediģēt savu profilu;</li>
+                                         <li>Noskenēt kādu no QR-kodiem un tikt uz konkrēto dzīvnieka ierakstu.</li>
+                                         </ul>">Palīdzība</a></li>
+            {% else %}
+            <li></li>
+            {% endif %}
+            {% endif %}
+            {% if request.user.is_staff %}
+            <li><a class="nav-link btn-rounded" href="{% url 'add_animals' %}">Pievienot dzīvnieku</a></li>
+            <li><a class="nav-link btn-rounded" href="{% url 'add_family' %}">Pievienot dzimtu</a></li>
+            <li><a class="nav-link btn-rounded" href="{% url 'admin:index' %}">Administratora panelis</a></li>
+            {% endif %}
+        </ul>
+        <span class="navbar-text">
+                {% if request.user.is_authenticated %}
+                    &nbsp&nbspSveiki, {{ user.username }} | <a href="{% url 'logout' %}">Izlogoties</a>
+                    <span>&nbsp&nbsp</span>
+                {% endif %}
+        </span>
+    </div>
+</nav>

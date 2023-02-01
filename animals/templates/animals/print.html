@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <title>Drukāt {{ animals.animal_name|lower }}</title>
+    <style>
+        h1, .img{
+            font-size: 85px;
+            text-align: center;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<h1>{{ animals.animal_name|slugify|title }}</h1>
+<p class="img"><img src="{{ animals.image.path }}" alt="img"></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p class="img"><img src="{{ animals.qr_code.path }}" alt="img"></p>
+</body>
+</html>
